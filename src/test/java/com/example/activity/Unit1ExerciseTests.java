@@ -142,4 +142,23 @@ public class Unit1ExerciseTests {
         assertTrue("EditTextActivity->LinearLayout[0] should have initial value 'click!'", button.getText().equals("click!"));
     }
 
+    @Test
+    public void test10EditTextActivityCounterGoesUpOnButtonClick() throws Exception {
+        ClassLoader classLoader = this.getClass().getClassLoader();
+        Class klass = classLoader.loadClass("com.example.activity.EditTextActivity");
+        Activity editTextActivity = (Activity) Robolectric.buildActivity(klass).create().get();
+        int activity_edit_text_layout_id = editTextActivity.getResources().getIdentifier("activity_edit_text_layout", "id", editTextActivity.getPackageName());
+        View editTextLayoutView = editTextActivity.findViewById(activity_edit_text_layout_id);
+        LinearLayout editTextLayout = (LinearLayout) editTextLayoutView;
+
+        TextView tv = (TextView) editTextLayout.getChildAt(0);
+        Button button = (Button) editTextLayout.getChildAt(1);
+
+        for (int i=0; i<10; i++){
+            assertTrue(String.format("Counter should have value %s", i), tv.getText().equals(String.format("%s",i)));
+            button.callOnClick();
+        }
+
+
+    }
 }
