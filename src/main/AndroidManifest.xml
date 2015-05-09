@@ -6,13 +6,17 @@
 
     <application android:name=".DeckardApplication" >
         <activity
-            android:name=".activity.DeckardActivity"
+            android:name=".Main"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.EditTextActivity"
+            android:label="@string/title_activity_edit_text" >
         </activity>
     </application>
 

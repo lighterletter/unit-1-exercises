@@ -33,9 +33,9 @@ public class Unit1ExerciseTests {
 
     @Before
     public void setUp() throws Exception {
-        // uncomment the following line to pass test 01
-//        mActivity = Robolectric.buildActivity(DeckardActivity.class).create().get();
-//        mAC = Robolectric.buildActivity(DeckardActivity.class).create().start();
+        //uncomment the following line to pass test 01
+        mActivity = Robolectric.buildActivity(DeckardActivity.class).create().get();
+        mAC = Robolectric.buildActivity(DeckardActivity.class).create().start();
     }
 
     @Test
@@ -95,8 +95,8 @@ public class Unit1ExerciseTests {
         ClassLoader classLoader = this.getClass().getClassLoader();
         Class klass = classLoader.loadClass("com.example.activity.EditTextActivity");
         Activity editTextActivity = (Activity) Robolectric.buildActivity(klass).create().get();
-        int activity_edit_text_id = editTextActivity.getResources().getIdentifier("activity_edit_text", "layout", editTextActivity.getPackageName());
-        assertTrue("R.layout.activity_edit_text not found", activity_edit_text_id > 0);
+        int activity_edit_text_id = editTextActivity.getResources().getIdentifier("activity_edit_text_layout", "layout", editTextActivity.getPackageName());
+        assertTrue("R.layout.activity_edit_text_layout not found", activity_edit_text_id > 0);
         int activity_edit_text_layout_id = editTextActivity.getResources().getIdentifier("activity_edit_text_layout", "id", editTextActivity.getPackageName());
         assertTrue("View/Layout(@+id/activity_edit_text_layout) not found", activity_edit_text_layout_id > 0);
         View editTextLayoutView = editTextActivity.findViewById(activity_edit_text_layout_id);
